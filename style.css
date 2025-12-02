@@ -64,8 +64,40 @@ body {
 
 .logo {
     display: flex;
-    flex-direction: column;
-    gap: 0.08rem;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover {
+    transform: scale(1.02);
+}
+
+.navbar-logo-img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover .navbar-logo-img {
+    transform: scale(1.05);
+}
+
+.logo-text {
+    font-family: "Playfair Display", serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .logo-main {
@@ -498,20 +530,370 @@ body {
    Footer
 --------------------- */
 .footer {
-    background: var(--color-bg-dark);
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    padding-block: 1.6rem;
+    background: linear-gradient(135deg, #0B2545 0%, #1a3a5f 100%);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    padding-block: 3.5rem 1.5rem;
+    position: relative;
+    overflow: hidden;
 }
 
-.footer-content {
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark));
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-about {
+    max-width: 350px;
+}
+
+.footer-logo {
+    margin-bottom: 1rem;
+}
+
+.footer-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-logo-img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    max-width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo-container:hover .footer-logo-img {
+    transform: scale(1.05);
+}
+
+.footer-logo-text {
+    font-family: "Playfair Display", serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.footer-description {
+    color: rgba(246, 245, 243, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-top: 1rem;
+}
+
+.footer-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.footer-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    margin-bottom: 1.2rem;
+    color: rgba(246, 245, 243, 0.85);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.footer-contact-list li:last-child {
+    margin-bottom: 0;
+}
+
+.footer-icon {
+    width: 20px;
+    height: 20px;
+    stroke: var(--color-primary);
+    stroke-width: 2;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+}
+
+.footer-contact-list a {
+    color: rgba(246, 245, 243, 0.85);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-contact-list a:hover {
+    color: var(--color-primary);
+    transform: translateX(3px);
+}
+
+.footer-social-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    width: 45px;
+    height: 45px;
+    background: rgba(212, 175, 55, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(212, 175, 55, 0.2);
+}
+
+.social-link svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--color-primary);
+    color: var(--color-bg-dark);
+    border-color: var(--color-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.social-link:hover svg {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
     text-align: center;
-    font-size: 0.88rem;
-    color: rgba(246, 245, 243, 0.9);
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.footer-small {
-    margin-top: 0.3rem;
-    color: rgba(180, 180, 180, 0.7);
+.footer-bottom p {
+    color: rgba(246, 245, 243, 0.7);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Contact Section */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.contact-item {
+    background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 2px solid rgba(212, 175, 55, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.contact-item:hover::before {
+    transform: scaleX(1);
+}
+
+.contact-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-primary);
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(212, 175, 55, 0.22) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.contact-item:hover .contact-icon {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.3) 100%);
+    transform: scale(1.1);
+}
+
+.contact-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--color-primary);
+    stroke-width: 2;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover .contact-icon svg {
+    stroke-width: 2.5;
+}
+
+.contact-item h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.4rem;
+    color: var(--color-text-main);
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.contact-item p {
+    color: rgba(27, 27, 27, 0.75);
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.contact-item p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-item a {
+    color: var(--color-bg-dark);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: inline-block;
+    position: relative;
+}
+
+.contact-item a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--color-primary);
+}
+
+.contact-item a:hover::after {
+    width: 100%;
+}
+
+.contact-cta {
+    text-align: center;
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding-block: 2.5rem 1.5rem;
+    }
+    
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+    
+    .footer-about {
+        max-width: 100%;
+    }
+    
+    .footer-logo-img {
+        height: 60px;
+        max-width: 150px;
+    }
+    
+    .footer-logo-text {
+        font-size: 1.3rem;
+    }
+    
+    .navbar-logo-img {
+        height: 70px;
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    .footer-logo-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .footer-title {
+        font-size: 1.2rem;
+    }
+    
+    .footer-contact-list {
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .footer-contact-list li {
+        justify-content: center;
+    }
+    
+    .footer-social-links {
+        justify-content: center;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-item {
+        padding: 2rem 1.5rem;
+    }
+    
+    .contact-item h3 {
+        font-size: 1.2rem;
+    }
 }
 
 /* --------------------

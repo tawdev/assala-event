@@ -242,7 +242,7 @@ $activeSection = $_GET['section'] ?? 'reservations';
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Admin Dashboard – Assala Events</title>
+    <title>Admin Dashboard – AL ASSALA EVENT</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -768,8 +768,10 @@ $activeSection = $_GET['section'] ?? 'reservations';
 <header class="navbar">
     <div class="container nav-container">
         <div class="logo">
-            <span class="logo-main">Assala Events</span>
-            <span class="logo-sub">Admin Dashboard</span>
+            <a href="index.php#home" class="logo-link">
+                <img src="images/logo/image.png" alt="AL ASSALA EVENT" class="navbar-logo-img">
+                <span class="logo-text">AL ASSALA EVENT</span>
+            </a>
         </div>
         <nav class="nav">
             <ul class="nav-links">
